@@ -27,5 +27,18 @@
         </div>
     </div>
 
+    <script>
+        window.onload = function () {   //Esta função será executada quando a janela for carregada
+            const modal = document.querySelector('.modal')  //Selecionando o conteúdo da classe modal
+            const buttonCloseModal = modal.querySelector('.modalCloseBtn') //Selecionando o conteúdo da classe modalCloseBtn que esteja dentro do 'modal', ou seja, o botão de fechar a janela modal
+
+            //Event listener que, ao clicar no botão que selecionamos acima, faz com que o conteúdo modal seja escondido
+            buttonCloseModal.addEventListener("click", () => modal.style.display = 'none')
+
+            const buttonOpenModal = document.getElementById('modalOpenBtn') //Selecionando o botão de abrir a janela modal
+            //Event listener que, ao clicar no botão
+            buttonOpenModal.addEventListener("click", () => modal.style.display = 'block')
+        }
+    </script>
 </body>
 </html>
