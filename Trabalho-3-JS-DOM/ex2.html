@@ -15,11 +15,42 @@
     <main>
         <form action="">
             <label for="inteField">Interesse :</label>
-            <!-- value="Insira um interesse e aperte enter!" -->
-            <input type="text" id="inteField" name="inteField"> 
+            <!-- value="Insira um interesse!" -->
+            <input type="text" id="inteField" name="inteField">
+            <button id='btnAdd'>Adicionar</button>
         </form>
 
+        <ol id="listaItere"></ol>
     </main>
 
+    <script>
+        window.onload = () =>{  //Será executado no carregamento da página (window)
+            //Selecionando o botão. O campo não precisa ser selecionado, pois um evento de click num botão num form é equivalente a um "keyup" da tecla "Enter" neste form. Assim, também não é necessário nem lidar com o evento de keyup
+            const btnAdd = document.getElementById('btnAdd')
+            btnAdd.addEventListener("click", (event) => {   //Adicionando o event listener ao clicar no botão (ou pressionar enter no campo)
+                const campoAdd = document.getElementById('inteField')   //Selecionando o campo
+                if (campoAdd.value.trim() != ''){   //Apenas se o conteúdo campo não for vazio ou um monte de espaços…
+                    const listaIntere = document.getElementById('listaItere')   //Selecionando a ordered list de interesses (inicialmente vazia…)
+
+                    //Criando os elementos que formarão o "item" que aparecerá na lista
+                    const newLi = document.createElement('li')  //Criando um novo elemento li
+                    const newSpan = document.createElement('span')  //Criando um novo elemento span
+                    const newBtn = document.createElement('button') //Criando um novo elemento button
+
+                    newSpan.textContent = campoAdd.value.trim()    //Texto do interesse = texto inserido no campo (menos espaços extras no começo ou final)
+                    newBtn.textContent = '✕'   //Texto do botão = esse emoji de X-zão
+
+                    newBtn.onclick = () => newLi.remove()   //Adicionando a função do botão X, de deletar o item inteiro (incluindo o span e botão inserido nele) da lista
+                    campoAdd.value = '' //Esvaziando o conteúdo do campo após a inserção
+
+                    newLi.appendChild(newSpan)  //Inserindo o span (texto) no novo li
+                    newLi.appendChild(newBtn)   //Inserindo o botão no novo li
+                    listaIntere.appendChild(newLi)  //Inserindo o novo li na lista (ol)
+                }                
+
+                event.preventDefault()  //Previne o coportamento padrão de um form, que recarregaria a página, o que "deletaria" as modificações dinâmicas
+            })            
+        }
+    </script>
 </body>
 </html>

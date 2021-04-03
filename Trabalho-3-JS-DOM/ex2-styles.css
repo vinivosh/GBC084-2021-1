@@ -8,6 +8,39 @@ body {
     background-color: rgb(38, 38, 38);
 }
 
+main {
+    padding: 25px;
+    background-color: rgb(48, 48, 48);
+
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    /* transform: translate(-500px, -500px); */
+}
+
+ol li{
+    background-color: hsl(202, 5%, 25%);
+    padding: 10px;
+    margin: 15px;
+    border-radius: 7px;    
+}
+
+ol li button{
+    position: absolute;
+    padding: 0;
+    border-width: 0px;
+    right: 50px;
+    height: 40px;
+    width: 40px;
+    transform: translate(-4px, -4px);
+    background-color: rgba(0, 0, 0, 0%);
+    border-color: rgba(0, 0, 0, 0%);
+
+    color: hsl(0, 0%, 80%);
+    -webkit-text-stroke: 1px hsl(0, 0%, 80%);
+    font-size: 1.1em;
+}
+
 h1 {
     font-size: 2em;
     color: rgb(49, 150, 209);
@@ -15,7 +48,7 @@ h1 {
 
 h2 {
     font-size: 1.4em;
-    color: rgb(87, 176, 228);
+    color: #57b0e4;
 }
 
 button {
@@ -30,5 +63,5 @@ button:hover {
 
 input {
     font-size: 0.7em;
-    width: 300px;
+    width: 180px;
 }
