@@ -39,21 +39,53 @@
             <section id="cssTab">
                 <h2>CSS</h2>
 
+                <p>Eius blanditiis ex magni eaque quis, omnis mollitia ipsam itaque ad voluptatibus quas. Minus cupiditate assumenda impedit id labore ut, reprehenderit atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquam facilis veniam pariatur commodi sunt, voluptatem delectus hic. Quaerat architecto velit, excepturi soluta dolore doloribus obcaecati aspernatur minus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, optio.</p>
+
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum adipisci nisi labore ea ab, quasi beatae veniam excepturi modi fuga dolore. Iure itaque culpa aliquam doloribus. Tempore impedit assumenda mollitia.</p>
-                
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis ex magni eaque quis, omnis mollitia ipsam itaque ad voluptatibus quas. Minus cupiditate assumenda impedit id labore ut, reprehenderit atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquam facilis veniam pariatur commodi sunt, voluptatem delectus hic. Quaerat architecto velit, excepturi soluta dolore doloribus obcaecati aspernatur minus. Quibusdam, optio.</p>
             </section>
 
             <section id="jsTab">
                 <h2>JavaScript</h2>
+                <p>Rerum neque repellat adipisci recusandae necessitatibus delectus deleniti excepturi sed, quam ab aliquid, cumque sit laboriosam odit voluptas optio iste, qui exercitationem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repudiandae id, nulla, at, nisi earum quasi repellendus voluptatum facilis odio repellat corrupti voluptate. Recusandae, nobis dolorem.</p>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum adipisci nisi labore ea ab, quasi beatae veniam excepturi modi fuga dolore. Iure itaque culpa aliquam doloribus. Tempore impedit assumenda mollitia. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, repellat, fugit ad incidunt eligendi assumenda nisi autem ut ducimus quas exercitationem iure consequatur minima sed doloribus pariatur a, perferendis repudiandae?</p>
-                
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius blanditiis ex magni eaque quis, omnis mollitia ipsam itaque ad voluptatibus quas. Minus cupiditate assumenda impedit id labore ut, reprehenderit atque. In aliquam facilis veniam pariatur commodi sunt, voluptatem delectus hic. Quaerat architecto velit, excepturi soluta dolore doloribus obcaecati aspernatur minus. Quibusdam, optio.</p>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum neque repellat adipisci recusandae necessitatibus delectus deleniti excepturi sed, quam ab aliquid, cumque sit laboriosam odit voluptas optio iste, qui exercitationem! Ad tenetur eum, nostrum fugit commodi consequatur enim tempore nam! Similique exercitationem consectetur quod? Officia repudiandae id, nulla, at, nisi earum quasi repellendus voluptatum facilis odio repellat corrupti voluptate. Recusandae, nobis dolorem.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum adipisci nisi labore ea ab, quasi beatae veniam excepturi modi fuga dolore. Iure itaque culpa aliquam doloribus. Tempore impedit assumenda mollitia. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, repellat, fugit ad incidunt eligendi assumenda nisi autem ut ducimus quas exercitationem iure consequatur minima sed doloribus pariatur a, perferendis repudiandae?</p>
             </section>
         </div>
     </main>
+
+    <script>
+        window.onload = () => {   //Função que será chamada assim que a página carregar
+            const btns = document.querySelectorAll("nav button")    //Selecionando todos botões dentro de nav
+            for (let btn of btns){  //Para cada botão desta lista de botões que selecionamos…
+                btn.addEventListener("click", changeTab)    //Adicionamos  eventListener que lida com a mudança da aba
+            }
+            openTab(0)  //Abrimos a primeira aba, ou seja, a que corresponde ao index 0 da lista de abas (lista de <section> dentro do <div> da classe "tabs")
+        }
+
+        function changeTab(e){  //Função que lida com a mudança da aba
+            const btnAdded = e.target   //Selecionamos o "target" do evento que chamou esta função, ou seja, o botão que foi apertado
+            const liOfBtn = btnAdded.parentNode //Selecionamos o pai deste botão que foi apertado, que é o <li> onde ele está inserido
+            const nodes = Array.from(liOfBtn.parentNode.children)   //Criamos um vetor a partir de todos os filhos do pai do <li> que selecionamos. Isto é, um vetor contendo todos os <li> da <ul> onde o <li> estava contido. Agora temos todos <li> dentro desta lista, e podemos usar o índice dela inteligentemente.
+            index = nodes.indexOf(liOfBtn)  //Encontramos o índice do <li> correspondente ao botão apertado
+            openTab(index)  //Chamamos a função que lida com a abertura da aba de índice index
+        }
+
+        function openTab(i){    //Função que recebe um índice i e abre a aba correspondente a esse índice (o i-nésimo <section> dentro de um <div> da classe "tabs")
+            const tabActive = document.querySelector(".tabActive")  //Seleciona a aba atualmente ativa (a que possui a classe "tabActive")
+            if (tabActive != null){ //Se tabActive não for null, ou seja, há alguma aba ativa atualmente…            
+                tabActive.classList.remove("tabActive") //Remove a classe de nome "tabActive" do elemento <section> que a possuía. Isso efetivamente faz a aba não ser mais a ativa                
+            }
+
+            const btnActive = document.querySelector(".btnActive")  //Faremos a exata mesma coisa com o botão que possuir a classe "btnActive"
+            if (btnActive != null){  //Se btnActive não for null…
+                btnActive.classList.remove("btnActive")//Fazemos com que ele não seja mais o botão ativo
+            }
+
+            document.querySelectorAll(".tabs section")[i].classList.add("tabActive")    //Selecionamos todos elementos <section> que estejam dentro de um elemento da classe "tabs", ou seja, todas as abas. Então selecionamos a aba de índice i e adicionamos a ela a classe "tabActive", fazendo ela de fato a que será exibida atualmente.
+            document.querySelectorAll("nav button")[i].classList.add("btnActive")    //Fazemos o mesmo com os botões, fazendo o botão correspondente à aba que será exibida ser o botão ativo atualmente.
+        }
+    </script>
 </body>
 </html>

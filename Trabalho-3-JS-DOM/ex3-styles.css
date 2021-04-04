@@ -1,5 +1,4 @@
 body {
-    /* max-width: 80%; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18pt;
     color: rgb(245, 245, 245);
@@ -51,28 +50,29 @@ nav button {
     font-size: 1.1em;
 }
 
+nav button .btnActive {
+    color: rgb(49, 105, 209);
+    font-weight: bold;
+}
+
 nav button:hover {
     color: rgb(49, 105, 209);
     cursor: pointer;
     text-decoration: underline;
 }
 
-nav button .btnActive {
-    color: rgb(49, 105, 209);
-    font-weight: bold;
-}
-
 section {
     margin: 10px 0px;
-    padding: 10px;
+    padding: 15px;
     background-color: rgb(48, 48, 48);
+    text-align: justify;
 }
 
-/* .tabs section{
+.tabs section{
     display: none;
-} */
+}
 
-section .tabActive {
+.tabs section.tabActive {
     display: block;
 }
 
@@ -88,18 +88,10 @@ h1 {
 h2 {
     font-size: 1.4em;
     color: #57b0e4;
+    margin: 0px;
+    padding: 10px 0px;
 }
 
 p {
-    margin: 16px 0px;
+    margin: 14px 0px;
 }
-
-/* button {
-    background-color: rgb(80, 80, 80);
-    color: rgb(245, 245, 245);
-    font-size: 0.7em;
-}
-
-button:hover {
-    background-color: rgb(100, 100, 100);
-} */
