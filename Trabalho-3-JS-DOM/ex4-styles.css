@@ -9,8 +9,11 @@ body {
 }
 
 main {
+    width: 480px;
     padding: 25px;
     background-color: rgb(48, 48, 48);
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 12px;
 
     position: absolute;
     top: 50%;
@@ -32,6 +35,22 @@ h3 {
     margin: 10px 0px;
     font-size: 1.2em;
     color: hsl(202, 81%, 74%);
+}
+
+.loginBox span {
+    display: block;
+    margin: 5px 0px 15px 0px;
+    color: hsl(0, 60%, 50%);
+}
+
+.loginBox label {
+    display: block;
+    margin: 5px 0px;    
+}
+
+.loginBox input {
+    display: block;
+    margin: 5px 0px;
 }
 
 button {
