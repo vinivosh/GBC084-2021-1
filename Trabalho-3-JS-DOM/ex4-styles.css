@@ -1,0 +1,50 @@
+body {
+    max-width: 80%;
+    margin: 0% auto;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18pt;
+    color: rgb(245, 245, 245);
+    background-color: rgb(38, 38, 38);
+}
+
+main {
+    padding: 25px;
+    background-color: rgb(48, 48, 48);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 2em;
+    color: hsl(202, 63%, 51%);
+}
+
+h2 {
+    font-size: 1.4em;
+    color: hsl(202, 72%, 62%);
+}
+
+h3 {
+    margin: 10px 0px;
+    font-size: 1.2em;
+    color: hsl(202, 81%, 74%);
+}
+
+button {
+    background-color: rgb(80, 80, 80);
+    color: rgb(245, 245, 245);
+    font-size: 0.7em;
+}
+
+button:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+input {
+    font-size: 0.7em;
+    width: 180px;
+}
