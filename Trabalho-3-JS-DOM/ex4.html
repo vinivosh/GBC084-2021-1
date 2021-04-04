@@ -16,7 +16,7 @@
         <div class="loginBox">
             <h3>Cadastro de Usuário</h3>
 
-            <form name="formCadastro" action="">
+            <form name="formCad" action="">
                 <div>
                     <label for="user">Usuário:</label>
                     <input type="text" name="user" id="user">
@@ -41,7 +41,40 @@
     </main>
     
     <script>
-        
+        window.onload = () =>{  //Função que é chamada quando a página é carregada
+            document.forms.formCad.onsubmit = validateForm  //Fazendo a ação ao submeter o form ser a chamada da função validateForm()
+        }
+
+        function validateForm(e){
+            let form = e.target //Selecionamos qual form está sendo validado
+            let formValido = true   //Essa variável define se o form está de fato válido ou não
+
+            const spanUser = form.user.nextElementSibling   //Selecionando o próximo elemento irmão do form de nome "user", que será o <span> abaixo dele
+            const spanPassw = form.passw.nextElementSibling   //Fazendo o mesmo para o form de nome "passw"
+            const spanEmail = form.email.nextElementSibling   //Fazendo o mesmo para o form de nome "email"
+
+            spanUser.textContent = ''   //Esvaziando o conteúdo de todos os spans…
+            spanPassw.textContent = ''
+            spanEmail.textContent = ''
+
+            if (form.user.value === ''){    //Se o form de nome "user" estiver vazio…
+                spanUser.textContent = 'O campo "usuário" deve ser preenchido…' //Inserimos a mensagem de erro no span correspondente
+                formValido = false  //Fazemos o form se tornar inválido
+            }
+
+            if (form.passw.value === ''){    //Se o form de nome "passw" estiver vazio…
+                spanPassw.textContent = 'O campo "senha" deve ser preenchido…' //Inserimos a mensagem de erro no span correspondente
+                formValido = false  //Fazemos o form se tornar inválido
+            }
+
+            if (form.email.value === ''){    //Se o form de nome "email" estiver vazio…
+                spanEmail.textContent = 'O campo "e-mail" deve ser preenchido…' //Inserimos a mensagem de erro no span correspondente
+                formValido = false  //Fazemos o form se tornar inválido
+            }
+
+            // e.preventDefault()  //Previne o comportamento padrão do form
+            return formValido
+        }
     </script>
 </body>
 </html>
