@@ -11,12 +11,15 @@
 
     <title>Hello, world!</title>
   </head>
+  
   <body>
-    <div class="container">
-        <h1 class="mb-4 mt-3">Formulário com <em>Floating Labels</em></h1>
+    <div class="container my-3">
+        <h1 class="mb-4">Formulário com <em>Floating Labels</em></h1>
 
         <main>
             <form class="row g-2">
+
+                <!-- Nome e CPF -->
                 <div class="col-md-9 form-floating">
                     <input type="text" class="form-control" placeholder="" id="inputNome">
                     <label for="inputNome"> Nome completo </label>
@@ -26,6 +29,7 @@
                     <label for="inputCPF"> CPF </label>
                 </div>
 
+                <!-- E-mail e senha -->
                 <div class="col-md-9 form-floating">
                     <input type="email" class="form-control" placeholder="" id="inputEmail">
                     <label for="inputEmail"> E-mail </label>
@@ -35,6 +39,7 @@
                     <label for="inputSenha"> Senha </label>
                 </div>
 
+                <!-- CEP e Endereço -->
                 <div class="col-md-2 form-floating">
                     <input type="text" class="form-control" placeholder="" id="inputCEP">
                     <label for="inputCEP"> CEP </label>
@@ -44,6 +49,7 @@
                     <label for="inputEnde"> Endereço </label>
                 </div>
 
+                <!-- Bairro, Cidade e Estado (select em um dropdown) -->
                 <div class="col-md-5 form-floating">
                     <input type="text" class="form-control" placeholder="" id="inputBairro">
                     <label for="inputBairro"> Bairro </label>
@@ -55,36 +61,39 @@
                 <div class="col-md-2 form-floating">
                   <select type="text" class="form-select" placeholder="" id="inputEstado">
                     <option selected>Sel.</option>
-                    <option>AC</option>
-                    <option>AL</option>
-                    <option>AP</option>
-                    <option>AM</option>
-                    <option>BA</option>
-                    <option>CE</option>
-                    <option>DF</option>
-                    <option>ES</option>
-                    <option>GO</option>
-                    <option>MA</option>
-                    <option>MT</option>
-                    <option>MS</option>
-                    <option>MG</option>
-                    <option>PA</option>
-                    <option>PB</option>
-                    <option>PR</option>
-                    <option>PE</option>
-                    <option>PI</option>
-                    <option>RJ</option>
-                    <option>RN</option>
-                    <option>RS</option>
-                    <option>RO</option>
-                    <option>RR</option>
-                    <option>SC</option>
-                    <option>SP</option>
-                    <option>SE</option>
-                    <option>TO</option>
+                    <option>AC</option><option>AL</option><option>AP</option>
+                    <option>AM</option><option>BA</option><option>CE</option>
+                    <option>DF</option><option>ES</option><option>GO</option>
+                    <option>MA</option><option>MT</option><option>MS</option>
+                    <option>MG</option><option>PA</option><option>PB</option>
+                    <option>PR</option><option>PE</option><option>PI</option>
+                    <option>RJ</option><option>RN</option><option>RS</option>
+                    <option>RO</option><option>RR</option><option>SC</option>
+                    <option>SP</option><option>SE</option><option>TO</option>
                   </select>
                   <label for="inputEstado" class=""> Estado </label>
                 </div>
+
+                <!-- Checkbox e botão Cadastrar -->
+                <div class="col-md-12 form-floating">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" placeholder="" id="inputTermos">
+                      <label for="inputTermos"> Concordo com os termos </label>
+                    </div>
+                </div>
+                <div class="col-md-12 form-floating">
+                  <button type="submit" class="btn btn-primary">
+                    Cadastrar
+                    <!-- Ícone da pessoa + -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor" class="bi bi-person-plus-fill ms-1" viewBox="0 0 16 16">
+                      <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                  </button>
+                  <!-- <input type="text" class="form-control" placeholder="" id="inputEnde">
+                  <label for="inputEnde"> Endereço </label> -->
+                </div>
+
             </form>
         </main>
         
