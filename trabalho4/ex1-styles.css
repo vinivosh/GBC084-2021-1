@@ -1,0 +1,18 @@
+html,body,.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+    color: rgb(245, 245, 245);
+    background-color: rgb(38, 38, 38) !important;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold !important;
+    color: hsl(202, 63%, 51%);
+}
+
+input.form-control {
+    color: #FFF !important;
+    font-size: 0.8em !important;
+    background-color: rgb(38, 38, 38) !important;
+}
