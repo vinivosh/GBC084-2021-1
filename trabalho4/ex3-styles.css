@@ -1,0 +1,32 @@
+html,body,.container {
+    font-size: 16pt;
+    color: rgb(245, 245, 245);
+    background-color: hsl(0, 0%, 15%) !important;
+}
+
+h1 {
+    margin: 20px 0px !important;
+    font-size: 2em;
+    font-weight: bold !important;
+    color: hsl(202, 63%, 51%);
+}
+
+article {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(245, 245, 245);
+    width: 100%;
+    padding: 3px 6px;
+    margin: 3px 0px;
+}
+
+article.lineA {
+    background-color: hsla(0, 100%, 50%, 0.3);
+}
+
+article.lineB {
+    background-color: hsla(135, 100%, 50%, 0.3);
+}
+
+article.lineC {
+    background-color: hsla(240, 100%, 50%, 0.3);
+}
