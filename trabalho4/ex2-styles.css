@@ -1,0 +1,25 @@
+html,body,.container {
+    font-size: 14pt;
+    color: rgb(245, 245, 245);
+    background-color: rgb(38, 38, 38) !important;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold !important;
+    color: hsl(202, 63%, 51%);
+}
+
+input {
+    color: #FFF !important;
+    /* font-size: 0.8em !important; */
+    /* Height necessário senão há um overlap feio do floating label com o texto… */
+    /* height: 4.5em !important; */
+    background-color: rgb(38, 38, 38) !important
+}
+
+select {
+    color: rgb(245, 245, 245) !important;
+    background-color: rgb(38, 38, 38) !important;
+    /* height: 4.5em !important; */
+}
