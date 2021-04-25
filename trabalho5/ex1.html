@@ -17,33 +17,33 @@
         <h1 class="mb-4">Formulário Responsivo com <strong>PHP</strong></h1>
 
         <main>
-            <form class="row g-2">
+            <form class="row g-2" action="processForm.php" method="POST">
 
               <div class="col-md-4">
                 <label for="inputCEP"> CEP </label>
-                <input type="text" class="form-control" placeholder="" id="inputCEP">
+                <input type="text" class="form-control" id="inputCEP" name="inputCEP">
               </div>
 
               <!-- Achei que fazia mais sentido colocar bairro antes de logradouro… espero que eu não perca ponto por mudar a ordem do enunciado 🤔 -->              
               <div class="col-md-8">
                 <label for="inputBairro"> Bairro </label>
-                  <input type="text" class="form-control" placeholder="" id="inputBairro">
+                  <input type="text" class="form-control" id="inputBairro" name="inputBairro">
               </div>
 
               <div class="col-md-12">
                 <label for="inputLogradouro"> Logradouro </label>
-                <input type="text" class="form-control" placeholder="" id="inputLogradouro">
+                <input type="text" class="form-control" id="inputLogradouro" name="inputLogradouro">
               </div>
 
               <div class="col-md-8">
                 <label for="inputCid"> Cidade </label>
-                <input type="text" class="form-control" placeholder="" id="inputCid">
+                <input type="text" class="form-control" id="inputCid" name="inputCid">
               </div>
 
               <!-- Estado (select em um dropdown menu) -->
               <div class="col-md-4">
                 <label for="inputEstado" class=""> Estado </label>
-                <select type="text" class="form-select" placeholder="" id="inputEstado">
+                <select type="text" class="form-select"  id="inputEstado" name="inputEstado">
                   <option selected>Selecione…</option>
                   <option>AC</option><option>AL</option><option>AP</option>
                   <option>AM</option><option>BA</option><option>CE</option>
