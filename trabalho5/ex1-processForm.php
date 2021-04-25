@@ -32,11 +32,26 @@
 
         <main>
             <?php
-            $cep = $_POST["inputCEP"];
-            $bairro = $_POST["inputBairro"];
-            $logradouro = $_POST["inputLogradouro"];
-            $cidade = $_POST["inputCid"];
-            $estado = $_POST["inputEstado"];
+            if (isset($_POST["inputCEP"]))
+                $cep = $_POST["inputCEP"];
+            else
+                $cep = 'NÃO_PREENCHIDO';
+            if (isset($_POST["inputBairro"]))
+                $bairro = $_POST["inputBairro"];
+            else
+                $bairro = 'NÃO_PREENCHIDO';
+            if (isset($_POST["inputLogradouro"]))
+                $logradouro = $_POST["inputLogradouro"];
+            else
+                $logradouro = 'NÃO_PREENCHIDO';
+            if (isset($_POST["inputCid"]))
+                $cidade = $_POST["inputCid"];
+            else
+                $cidade = 'NÃO_PREENCHIDO';
+            if (isset($_POST["inputEstado"]))
+                $estado = $_POST["inputEstado"];
+            else
+                $estado = 'NÃO_PREENCHIDO';
 
             echo <<<HTML
             <div class="row g-2">
