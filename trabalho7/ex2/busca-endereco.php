@@ -2,12 +2,12 @@
 
 //
 // Código fornecido pelo professor Daniel Furtado e modificado por Vinícius Henrique para utilizar
-// um db MySQL ao invés da array $enderecos
+// um db MySQL ao invés da array hardcoded $enderecos
 //
 
 require "conexaoMysql.php";
 $pdo = mysqlConnect();
-$cep = $_GET['cep'] ?? '';
+$cep = $_GET["cep"] ?? '';
 
 class Endereco
 {
@@ -23,28 +23,18 @@ class Endereco
   }
 }
 
+// Utilizando prepared statements para proteção contra um ataque de injeção SQL, já que o campo "cep" foi obtido de um fomulário preenchido pelo usuário
 $sql = <<<SQL
-    SELECT *
+    SELECT rua, bairro, cidade
     FROM T7E2_endereco
     WHERE cep = ?
     SQL;
 
 $stmt = $pdo->prepare($sql);
-$stmt->execute($cep);
+$stmt->execute([$cep]);
 
-// $endereco1 = new Endereco('Av João Naves', 'Santa Mônica', 'Uberlândia');
-// $endereco2 = new Endereco('Av Floriano Peixoto', 'Centro', 'Uberlândia');
-// $endereco3 = new Endereco('Av Afonso Pena','Martins', 'Uberlândia');
+$row = $stmt->fetch();
 
-// $enderecos = array(
-//   '38400-100' => $endereco1,
-//   '38400-200' => $endereco2,
-//   '38400-300' => $endereco3
-// );
+$endereco = new Endereco($row['rua'], $row['bairro'], $row['cidade']);
 
-
-  
-$endereco = array_key_exists($cep, $enderecos) ? 
-  $enderecos[$cep] : new Endereco('', '', '');
-  
 echo json_encode($endereco);
