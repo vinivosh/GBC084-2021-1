@@ -21,18 +21,18 @@
         <main>
             <div class="row mt-5 pt-3 mx-0">
                 <!-- Seleção da especialidade -->
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                     <select name="selEsp" id="selEsp">
                         <!-- Adicionei a opção "Selecione… " -->
-                        <option value="cardiologia" selected>Selecione…</option>
-                        <option value="cardiologia">Cardiologia</option>
-                        <option value="dermatologia">Dermatologia</option>
-                        <option value="oftalmologia">Oftalmologia</option>
+                        <option value="" selected>Selecione…</option>
+                        <option value="Cardiologia">Cardiologia</option>
+                        <option value="Dermatologia">Dermatologia</option>
+                        <option value="Oftalmologia">Oftalmologia</option>
                     </select>
                 </div>
 
                 <!-- Seleção do médico (preenchida dinamicamente com AJAX!) -->
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                     <select name="selDoctor" id="selDoctor"></select>
                 </div>
             </div>
@@ -49,7 +49,44 @@
     <script>
         window.onload = () =>{
             const select = document.getElementById('selEsp')
-            // 
+            
+            select.addEventListener('change', () => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', 'ex4-processRequest.php?esp=' + select.value)
+                
+                xhr.onload = () =>{ // Se bem sucedido…
+                    if (xhr.status == 200){
+                        const selectMedicos = document.getElementById('selDoctor')
+
+                        // Primeiro removemos todos itens do select de médicos, se existirem
+                        while (selectMedicos.firstElementChild){
+                            // Demorei um século pra encontrar um jeito que funcionasse pra remover TODOS elementos filhos dessa coisa 😐
+                            selectMedicos.removeChild(selectMedicos.lastElementChild)
+                        }                        
+                        
+                        // E só então obtemos os novos do servidor…
+                        let response = JSON.parse(xhr.responseText)
+                        // Demorei muito mais do que gostaria de admitir para descobrir que for…in não deve ser usado numa array, mas sim a função forEach() 😶🔫
+                        response.forEach(doc => {
+                            if (doc.nome != null && doc.telefone != null){
+                                let infoDoc = document.createElement('option')
+                                infoDoc.text = doc.nome + ' – ' + doc.telefone
+                                infoDoc.value = doc.nome
+
+                                selectMedicos.appendChild(infoDoc)
+                            }
+                        })
+                    }else{  // Se houve alguma falha…
+                        alert('Falha inesperada: ' + xhr.responseText)
+                    }
+                }
+
+                xhr.onError = () => {   // Se houver erro de rede…
+                    alert('Erro de rede')
+                }
+
+                xhr.send()
+            })
         }
     </script>
   </body>
